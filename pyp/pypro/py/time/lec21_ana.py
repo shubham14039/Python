@@ -1,0 +1,1 @@
+# This program will return the number of processes will be executed in order to run a program and hence it will make a connection between the input size and the processes. And hence it will extablish a way to find out the time complexity of a program.
