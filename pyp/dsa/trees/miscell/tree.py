@@ -1,41 +1,33 @@
+
 class Tree:
-    class Position:
+    # Abstract base class for implementing a tree structure
+    class position:
+        # An abstraction representing the location of a single element
         def element(self):
-            raise NotImplementedError("must be implemented by the subclass")
+            '''Return the element stored at this position'''
+            raise NotImplementedError("Must be implemented by the subclass")
 
         def __eq__(self, other):
-            raise NotImplementedError("must be implemented by the subclass")
+            '''Return if other position represents the same location'''
+            raise NotImplementedError("Must be implemented by the subclass")
 
         def __ne__(self, other):
+            '''Return True if other does not represent the same location'''
             return not (self == other)
 
     def root(self):
-        raise NotImplementedError("must be implemented by the subclass")
+        '''Return the postion representing the trees' root (None if empty)''' 
+        raise NotImplementedError("Must be implemented by the subclass")
 
     def parent(self, p):
-        raise NotImplementedError("must be implemented by the subclass")
+        raise NotImplementedError("Must be implemented by the subclass")
 
     def num_children(self, p):
-        raise NotImplementedError("must be implemented by the subclass")
+        raise NotImplementedError("Must be implemented by the subclass")
+
+    def children(self, p):
+        raise NotImplementedError("Must be implemented by the subclass")
 
     def __len__(self):
-        raise NotImplementedError("must be implemented by the subclass")
-
-    def is_root(self, p):
-        return self.root() == p
-
-    def is_leaf(self, p):
-        return self.num_children(p) == 0
-
-    def is_empty(self):
-        return len(self) == 0
-
-    def depth(self, p):
-        if self.is_root(p):
-            return 0
-        else:
-            return 1 + self.depth(self.parent(p))
-    
-    def _height(self):
-        return max(self.depth(p) for p in self.positions() if self.is_leaf(p))
+        raise NotImplementedError("Must be implemented by the subclass")
 
